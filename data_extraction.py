@@ -7,6 +7,7 @@ from database.models import Reg_Ter, Repasse_FNS
 import pandas as pd
 
 
+# funcao q extrai do csv disponibilizado
 def extract_from_relatorio():
 	df = pd.read_csv(
 		'data/RELATORIO_DTB_BRASIL_MUNICIPIO.csv', encoding='iso-8859-1', low_memory=False, sep=';'
@@ -38,6 +39,7 @@ def get_value(value: str):
 	return float(value.replace("'", '').replace('.', '').replace(',', '.'))
 
 
+# funcao que extrai de uma planilha (precisa do path como parametro)
 def extract_from_xls(planilha):
 	# colunas necessarias e seus nomes
 	select_columns = [1, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
@@ -87,6 +89,7 @@ def extract_from_xls(planilha):
 		# print(f'{registro.cod_municipio}, {registro.id}')   # verbose
 
 
+# funcao que executa a extracao de todas planilhas em ./data/
 def extract_from_planilhas():
 	# log de planilhas que falharam
 	open('failed_planilha.log', 'w').close()
