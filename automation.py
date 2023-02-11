@@ -97,6 +97,7 @@ def get_municipios():
 	]
 
 
+# funcao main
 def get_planilhas():
 	# log de municipios que falharam
 	open('failed_municipio.log', 'w').close()
